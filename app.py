@@ -36,9 +36,6 @@ def preprocess_input(product):
     return transformed.toarray()
 
 def get_recommendations(predictions, unique_items):
-    # Implement the logic to convert predictions to actual recommendations
-    # This might involve finding the top predicted 'StockCode' and mapping them to descriptions
-    # The following is a placeholder - replace it with your logic
     top_indices = np.argsort(predictions[0])[-3:][::-1]
     return [unique_items[i] for i in top_indices]
 
