@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Product</h2>
+        <form method="POST">
+            <select name="product">
+                {% for product in products %}
+                    <option value="{{ product }}" {% if product == selected_product %}selected{% endif %}>
+                        {{ product }}
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Get Recommendations">
+        </form>
+
+        {% if recommendations %}
+            <h2>Recommended Products:</h2>
+            <ul>
+                {% for product in recommendations %}
+                    <li>{{ product }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
