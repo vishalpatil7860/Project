@@ -36,7 +36,7 @@ def preprocess_input(product):
     return transformed.toarray()
 
 def get_recommendations(predictions, unique_items):
-    top_indices = np.argsort(predictions[0])[-3:][::-1]
+    top_indices = np.argsort(predictions[0])[-5:][::-1]
     return [unique_items[i] for i in top_indices]
 
 if __name__ == '__main__':
